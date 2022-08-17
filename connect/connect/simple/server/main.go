@@ -28,7 +28,7 @@ func main() {
 	path, handler := simplev1connect.NewSimpleServiceHandler(&Server{ideas: make(map[string]*v1.Idea)})
 	mux.Handle(path, handler)
 
-	log.Println("Starting Simple Connect Server")
+	log.Println("Starting Simple Connect Server on localhost:5555")
 	server := &http.Server{
 		ReadHeaderTimeout: 30 * time.Second,
 		Addr:              "localhost:5555",

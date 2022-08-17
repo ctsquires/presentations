@@ -17,12 +17,13 @@ func main() {
 
 	v1.RegisterSimpleServiceServer(grpcServer, &Server{ideas: make(map[string]*v1.Idea)})
 	reflection.Register(grpcServer)
+
 	listener, err := net.Listen("tcp", "localhost:4444")
 	if err != nil {
 		panic(err)
 	}
 
-	log.Println("Starting gRPC Simple Server")
+	log.Println("Starting gRPC Simple Server on localhost:4444")
 
 	err = grpcServer.Serve(listener)
 	if err != nil {
