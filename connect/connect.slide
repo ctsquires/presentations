@@ -1,0 +1,38 @@
+Buf Connect
+17th August 2022
+
+Connor Squires
+
+* gRPC
+
+.image grpc-icon-color.png 300 300
+
+gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment.
+
+github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md
+
+* Protobuf
+
+.code helloworld.proto
+
+* gRPC-go
+
+github.com/grpc/grpc-go
+
+* Issues & Annoyances
+
+- grpc-go uses its own implementation of HTTP/2 not `net/http`.
+- The gRPC protocol requires end-to-end support for HTTP/2 and trailers.
+- Not simple to use/debug/test, no traditional tooling works with grpc (postman, k6, curl etc)
+- Requires the server to setup a http proxy (grpc-gateway) to support services with no HTTP2 support.
+- gRPC-Web is difficult, requiring an envoy proxy to sit in between translating between HTTP/1.1 and HTTP/2
+
+* Buf
+
+https://buf.build/
+
+* Buf Connect
+
+https://connect.build/docs/protocol/
+
+* Demo

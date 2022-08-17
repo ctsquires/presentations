@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package thought.v1;
+
+service ThoughtService {
+  rpc GetThought (GetThoughtRequest) returns (GetThoughtResponse);
+
+  rpc ReceiveThoughts (ReceiveThoughtsRequest) returns (stream ReceiveThoughtsResponse);
+
+  rpc SendThoughts (stream SendThoughtsRequest) returns (SendThoughtsResponse);
+
+  rpc ConverseThoughts (stream ConverseThoughtsRequest) returns (stream ConverseThoughtsResponse);
+}
+
+message GetThoughtRequest {}
+
+message GetThoughtResponse {
+  string thought = 1;
+}
+
+message ReceiveThoughtsRequest {}
+
+message ReceiveThoughtsResponse {
+  string thought = 1;
+}
+
+message SendThoughtsRequest {
+  string thought = 1;
+}
+
+message SendThoughtsResponse {
+  string message = 1;
+}
+
+message ConverseThoughtsRequest {
+  string thought = 1;
+}
+
+message ConverseThoughtsResponse {
+  string thought = 1;
+}

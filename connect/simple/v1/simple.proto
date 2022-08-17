@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package simple.v1;
+
+service SimpleService {
+  rpc GetIdea(GetIdeaRequest) returns (Idea);
+  rpc CreateIdea(CreateIdeaRequest) returns (Idea);
+  rpc ListIdeas(ListIdeasRequest) returns (ListIdeasResponse);
+  rpc DeleteIdea(DeleteIdeaRequest) returns (DeleteIdeaResponse);
+  rpc UpdateIdea(UpdateIdeaRequest) returns (Idea);
+}
+
+message Idea {
+  string name = 1;
+  string category = 2;
+  string description = 3;
+}
+
+message GetIdeaRequest {
+  string name = 1;
+}
+
+message CreateIdeaRequest {
+  Idea idea = 1;
+}
+
+message ListIdeasRequest {
+
+}
+
+message ListIdeasResponse {
+  repeated Idea ideas = 1;
+}
+
+message DeleteIdeaRequest {
+  string name = 1;
+}
+
+message DeleteIdeaResponse {}
+
+message UpdateIdeaRequest {
+  Idea idea = 1;
+}
